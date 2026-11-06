@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBTZ Tecnologia | Consultoria Especializada Protheus RH e BPO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #061a3b;
+            --secondary-color: #009490;
+            --accent-hover: #007a77;
+            --text-color: #333333;
+            --light-bg: #f5f7fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            max-height: 70px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            font-weight: 600;
+            transition: color 0.3s;
+            color: var(--primary-color);
+        }
+
+        .nav-links li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn-cta {
+            background-color: var(--secondary-color);
+            color: var(--white) !important;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #030d1f 100%);
+            color: var(--white);
+            padding: 170px 20px 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            color: #d1e4f3;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 20px;
+            background-color: var(--light-bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .stat-box h3 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eaeaea;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-bottom-color: var(--secondary-color);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .service-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 15px;
+        }
+
+        .service-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-bg);
+            padding: 100px 20px;
+        }
+
+        .contact-container {
+            display: flex;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            flex: 1;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+        }
+
+        .info-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-item p {
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #030d1f;
+            color: #999;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; height: auto; padding: 20px 0; gap: 20px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .hero h1 { font-size: 32px; }
+            .about-content { flex-direction: column; }
+            .contact-container { flex-direction: column; }
+            .hero-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo-container">
+                <a href="#inicio">
+                    <img src="logo.png" alt="DBTZ Tecnologia" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre a Consultoria</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato" class="btn-cta">Falar com Especialista</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Especialista em Protheus (TOTVS) – Módulos de RH</h1>
+            <p>Mais de 15 anos de experiência entregando soluções completas em consultoria, suporte e BPO de Folha de Pagamento e Ponto Eletrônico para impulsionar o seu negócio.</p>
+            <div class="hero-buttons">
+                <a href="#contato" class="btn-cta">Solicitar Orçamento</a>
+                <a href="#servicos" class="btn-outline">Conhecer Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>Experiência que Gera Resultados</h2>
+                <p>A <strong>DBTZ Tecnologia</strong> é liderada por Diego Bortoluzo, analista e consultor especialista no ecossistema TOTVS Microsiga Protheus, atuando de forma exclusiva e terceirizada na resolução de demandas complexas da área de Recursos Humanos.</p>
+                <p>Nosso foco é promover a melhoria contínua do sistema e dos processos realizados pelos usuários, fornecendo ferramentas customizadas, migrações seguras e gestão inteligente de banco de dados para que os setores ganhem máxima agilidade.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <h3>15+ Anos</h3>
+                        <p>Atuação em Consultoria</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>200+</h3>
+                        <p>Clientes Atendidos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossos Serviços</h2>
+                <p>Especialização profunda nos módulos de Recursos Humanos do Protheus, garantindo conformidade legal e eficiência operacional.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Consultoria e Suporte Protheus</h3>
+                    <p>Atendimento exclusivo e suporte avançado nos módulos de Gestão de Pessoal, Ponto Eletrônico e eSocial.</p>
+                    <ul>
+                        <li>Orientações práticas a usuários</li>
+                        <li>Atualização completa do sistema (releases)</li>
+                        <li>Atendimento a demandas legais</li>
+                        <li>Treinamento de equipes</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>BPO de Folha de Pagamento</h3>
+                    <p>Terceirização completa das rotinas de administração de pessoal, garantindo precisão e cumprimento de prazos.</p>
+                    <ul>
+                        <li>Processamento de Folha</li>
+                        <li>Gestão de Ponto Eletrônico</li>
+                        <li>Transmissão de eSocial</li>
+                        <li>Tratamento de Dados (LGPD)</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Desenvolvimento e Migração</h3>
+                    <p>Implementações robustas, desenvolvimento sob medida e transições seguras para novas versões.</p>
+                    <ul>
+                        <li>Linguagem ADVPL e consultas SQL</li>
+                        <li>Novas rotinas customizadas</li>
+                        <li>Migração e Implantação do sistema</li>
+                        <li>Integração de processos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contato">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Entre em Contato</h3>
+                    <p style="margin-bottom: 30px; color: #d1e4f3;">Pronto para otimizar os processos de RH da sua empresa? Fale conosco para desenharmos a solução ideal.</p>
+                    
+                    <div class="info-item">
+                        <h4>WhatsApp</h4>
+                        <p>(19) 9 9919-5243</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h4>E-mail</h4>
+                        <p>diego.bortoluzo@gmail.com</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h4>Localização</h4>
+                        <p>Sede: São Paulo, SP (Pinheiros)<br>
+                           Atuação Estratégica: Campinas/SP e Região<br>
+                           <em>Atendimento remoto para todo o Brasil.</em></p>
+                    </div>
+                </div>
+                <div style="flex: 1; padding: 60px 40px; display: flex; flex-direction: column; justify-content: center; background: #fff;">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-color);">Solicite uma Avaliação</h3>
+                    <form style="display: flex; flex-direction: column; gap: 15px;" onsubmit="event.preventDefault(); alert('Formulário enviado com sucesso!');">
+                        <input type="text" placeholder="Seu Nome / Empresa" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;" required>
+                        <input type="email" placeholder="Seu E-mail" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;" required>
+                        <textarea placeholder="Como podemos ajudar sua operação de RH no Protheus?" rows="4" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; resize: vertical;" required></textarea>
+                        <button type="submit" class="btn-cta" style="border: none; cursor: pointer; font-size: 16px;">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 dBtz Tecnologia. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; font-size: 12px;">CNPJ: 68.756.891/0001-44</p>
+        </div>
+    </footer>
+
+</body>
+</html>

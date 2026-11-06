@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Local Otimizado para Nova Odessa -->
+    <title>RodaLivre Auto Center | Oficina Mecânica em Nova Odessa - SP</title>
+    <meta name="description" content="Oficina mecânica e Auto Center em Nova Odessa - SP. Diagnóstico computadorizado, suspensão, freios, troca de óleo e revisão geral. Fale conosco no WhatsApp!">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #D32F2F; /* Vermelho automotivo */
+            --dark-color: #1A1A1A;    /* Grafite escuro */
+            --light-bg: #F4F5F7;      /* Cinza claro */
+            --whatsapp-color: #25D366;/* Verde WhatsApp */
+            --text-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .btn-header {
+            background-color: var(--whatsapp-color);
+            color: #fff;
+            padding: 10px 18px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://cdn.b4c.inf.br/storage/minasferramentas/assets/servicos-de-uma-oficina-mecanica-correia-dentadajpg-5c52db460bc24f3e55d281c360a42b42.jpg') center/cover no-repeat;
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ddd;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-main-whatsapp {
+            background-color: var(--whatsapp-color);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-main-whatsapp:hover {
+            transform: scale(1.05);
+            background-color: #20ba5a;
+        }
+
+        /* Destaques */
+        .features {
+            padding: 40px 20px;
+            background-color: var(--light-bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+
+        /* Serviços */
+        .services {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--dark-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            padding: 25px;
+            transition: box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Formas de Pagamento */
+        .payment-methods {
+            background-color: #fff;
+            padding: 30px 20px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .payment-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .payment-tag {
+            background-color: var(--light-bg);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: var(--dark-color);
+            border: 1px solid #ddd;
+        }
+
+        /* Localização / Google Meu Negócio */
+        .location {
+            background-color: var(--light-bg);
+            padding: 60px 20px;
+        }
+
+        .location-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .location-info h2 {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .location-info p {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 320px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--whatsapp-color);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .location-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">RodaLivre <span>Auto Center</span></div>
+            <a href="https://wa.me/551934763034?text=Olá!%20Vim%20pelo%20site%20da%20RodaLivre%20Auto%20Center%20e%20gostaria%20de%20um%20orçamento." class="btn-header" target="_blank">
+                WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>RodaLivre Auto Center em Nova Odessa - SP</h1>
+            <p>Sua oficina mecânica de confiança no Jardim Primavera. Diagnóstico preciso, peças de qualidade e atendimento transparente.</p>
+            <a href="https://wa.me/551934763034?text=Olá!%20Gostaria%20de%20agendar%20uma%20revisão%20para%20meu%20carro%20na%20RodaLivre%20Auto%20Center." class="btn-main-whatsapp" target="_blank">
+                Agendar Serviço pelo WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>⚡ Diagnóstico Rápido</h3>
+                <p>Identificação precisa de falhas mecânicas e eletrônicas no seu veículo.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🛡️ Qualidade Garantida</h3>
+                <p>Peças de alta durabilidade e serviço feito por profissionais experientes.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🤝 Transparência</h3>
+                <p>Orçamentos claros e sem surpresas na hora do pagamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="services">
+        <h2 class="section-title">Serviços Prestados</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Revisão Preventiva</h3>
+                <p>Check-up geral para garantir viagens seguras e evitar quebras inesperadas no dia a dia.</p>
+            </div>
+            <div class="service-card">
+                <h3>Sistema de Freios</h3>
+                <p>Manutenção e troca de pastilhas, discos, fluido de freio e ajustes de segurança.</p>
+            </div>
+            <div class="service-card">
+                <h3>Suspensão e Direção</h3>
+                <p>Troca de amortecedores, buchas, pivôs e alinhamento do sistema de direção.</p>
+            </div>
+            <div class="service-card">
+                <h3>Troca de Óleo e Filtros</h3>
+                <p>Uso dos lubrificantes recomendados para cada tipo de motor e substituição de filtros de combustível e ar.</p>
+            </div>
+            <div class="service-card">
+                <h3>Injeção e Diagnóstico</h3>
+                <p>Leitura via scanner automotivo para solucionar falhas de aceleração, luz de injeção e consumo excessivo.</p>
+            </div>
+            <div class="service-card">
+                <h3>Mecânica Geral</h3>
+                <p>Consertos de motor, embreagem, sistema de arrefecimento e reparos preventivos/corretivos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formas de Pagamento -->
+    <section class="payment-methods">
+        <div class="container">
+            <h3>💳 Formas de Pagamento Aceitas</h3>
+            <div class="payment-tags">
+                <span class="payment-tag">💳 Cartão de Crédito</span>
+                <span class="payment-tag">💳 Cartão de Débito</span>
+                <span class="payment-tag">⚡ PIX</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização e Horários -->
+    <section class="location">
+        <div class="location-container">
+            <div class="location-info">
+                <h2>Onde Estamos</h2>
+                <p>📍 <strong>Endereço:</strong> Av. Rodolfo Kivitz, 1411 - Jardim Primavera, Nova Odessa - SP, 13380-530</p>
+                <p>⏰ <strong>Horário de Funcionamento:</strong></p>
+                <p>• Segunda a Sexta: 08:30 às 18:00<br>• Sábado: 08:30 às 12:00</p>
+                <p>📞 <strong>Telefone / WhatsApp:</strong> (19) 3476-3034</p>
+                <br>
+                <a href="https://wa.me/551934763034?text=Olá!%20Como%20faço%20para%20chegar%20na%20RodaLivre%20Auto%20Center?" class="btn-main-whatsapp" target="_blank" style="font-size: 1rem; padding: 12px 24px;">
+                    Solicitar Localização no WhatsApp
+                </a>
+            </div>
+            <div>
+                <!-- Mapa do Google em Nova Odessa -->
+                <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.077221087413!2d-47.3005893!3d-22.7802094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c89bc9f5d179a3%3A0x6b48fb565f1d4f2b!2sAv.%20Rodolfo%20Kivitz%2C%201411%20-%20Jardim%20Primavera%2C%20Nova%20Odessa%20-%20SP%2C%2013380-530!5e0!3m2!1wpt-BR!2sbr!4v1710000000000!5m2!1wpt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 RodaLivre Auto Center - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/551934763034?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida%20sobre%20meu%20veículo." class="whatsapp-float" target="_blank" title="Fale pelo WhatsApp">
+        💬
+    </a>
+
+</body>
+</html>

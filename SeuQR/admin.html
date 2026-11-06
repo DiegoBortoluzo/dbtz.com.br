@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SeuQR - Painel</title>
+<style>
+  body { font-family: system-ui, sans-serif; background:#f4f4f4; padding:24px; margin:0; }
+  h1 { font-size:20px; }
+  table { width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; }
+  th, td { padding:10px; border-bottom:1px solid #eee; text-align:left; font-size:14px; }
+  button { cursor:pointer; padding:6px 12px; border:none; border-radius:6px; background:#111; color:#fff; font-size:13px; }
+  button:hover { background:#333; }
+  .card { background:#fff; padding:16px; border-radius:8px; margin-bottom:16px; max-width:500px; }
+</style>
+</head>
+<body>
+  <h1>SeuQR - Painel de QR Codes</h1>
+
+  <div class="card">
+    <button onclick="criarQR()">+ Novo QR Code</button>
+  </div>
+
+  <table id="tabela">
+    <thead><tr><th>Hash</th><th>URL publica</th><th>Destino atual</th><th>Acoes</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+<script>
+async function carregar() {
+  const res = await fetch('/api/qrcodes');
+  const qrs = await res.json();
+  const tbody = document.querySelector('#tabela tbody');
+  tbody.innerHTML = qrs.map(qr => {
+    const destino = (qr.destinos && qr.destinos[0]) ? qr.destinos[0].tipo : '-- sem destino --';
+    return `<tr>
+      <td>${qr.hash}</td>
+      <td><a href="/a/${qr.hash}" target="_blank">/a/${qr.hash}</a></td>
+      <td>${destino}</td>
+      <td><button onclick="editarDestino('${qr.id}')">Editar destino</button></td>
+    </tr>`;
+  }).join('');
+}
+
+async function criarQR() {
+  await fetch('/api/qrcodes', { method: 'POST' });
+  carregar();
+}
+
+async function editarDestino(qrId) {
+  const url = prompt('URL de destino (link unico) para este QR:');
+  if (!url) return;
+  await fetch(`/api/qrcodes/${qrId}/destino`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ tipo: 'link_unico', config: { url } })
+  });
+  carregar();
+}
+
+carregar();
+</script>
+</body>
+</html>

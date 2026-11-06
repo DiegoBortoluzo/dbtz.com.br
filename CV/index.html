@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculo - Diego Bortoluzo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #061a3b;
+            --secondary-color: #009490;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f0f2f5;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        /* Container do CV */
+        .cv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            min-height: 1122px; /* Proporção A4 */
+            position: relative;
+        }
+
+        /* Coluna Esquerda (Sidebar) */
+        .sidebar {
+            width: 35%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 30px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .profile-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .profile-header h2 {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-title-sidebar {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .contact-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .contact-list li i {
+            color: var(--secondary-color);
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-list a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-list a:hover {
+            color: var(--secondary-color);
+        }
+
+        .education-item {
+            margin-bottom: 25px;
+        }
+
+        .education-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-item p {
+            font-size: 13px;
+            font-weight: 300;
+            color: #b0c4de;
+        }
+        
+        .personal-info {
+            margin-bottom: 40px;
+        }
+        
+        .personal-info p {
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+
+        /* Coluna Direita (Main Content) */
+        .main-content {
+            width: 65%;
+            padding: 50px 40px;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-body);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--secondary-color);
+        }
+
+        .objective {
+            margin-bottom: 30px;
+        }
+
+        .objective p {
+            font-size: 15px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--bg-body);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+
+        .exp-header {
+            margin-bottom: 12px;
+        }
+
+        .exp-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .exp-company {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .exp-date {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--secondary-color);
+            display: inline-block;
+            margin-top: 3px;
+        }
+
+        .exp-details {
+            list-style: none;
+        }
+
+        .exp-details li {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 15px;
+            line-height: 1.5;
+        }
+
+        .exp-details li::before {
+            content: '-';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Botão Flutuante Exportar PDF */
+        .btn-export {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 148, 144, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .btn-export:hover {
+            background-color: #007a77;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 148, 144, 0.6);
+        }
+
+        /* Estilos de Impressão Otimizados para 1 Página com mais conteúdo */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                background-color: var(--white);
+                padding: 0;
+                margin: 0;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                min-height: 100vh;
+                height: 100vh;
+                display: flex;
+            }
+            .sidebar {
+                padding: 25px 20px;
+            }
+            .main-content {
+                padding: 25px 25px; 
+            }
+            .profile-header {
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+            }
+            .profile-header h1 {
+                font-size: 20pt;
+            }
+            .contact-list {
+                margin-bottom: 20px;
+            }
+            .contact-list li {
+                margin-bottom: 6px;
+                font-size: 9.5pt;
+            }
+            .education-item {
+                margin-bottom: 12px;
+            }
+            .education-item h4 {
+                font-size: 11pt;
+            }
+            .section-title {
+                font-size: 14pt;
+                margin-bottom: 12px;
+                padding-bottom: 5px;
+            }
+            .objective {
+                margin-bottom: 15px;
+            }
+            .objective p {
+                font-size: 9.5pt;
+                line-height: 1.3;
+            }
+            .experience-item {
+                margin-bottom: 12px; 
+                padding-left: 15px;
+            }
+            .exp-header {
+                margin-bottom: 4px;
+            }
+            .exp-title {
+                font-size: 11pt;
+            }
+            .exp-company {
+                font-size: 9.5pt;
+            }
+            .exp-date {
+                font-size: 9pt;
+                margin-top: 2px;
+            }
+            .exp-details li {
+                font-size: 9pt;
+                margin-bottom: 3px;
+                line-height: 1.25;
+            }
+            .btn-export {
+                display: none !important;
+            }
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+            }
+            .btn-export {
+                bottom: 20px;
+                top: auto;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão de Exportar -->
+    <button class="btn-export" onclick="window.print()">
+        <i class="fas fa-file-pdf"></i> Exportar para PDF
+    </button>
+
+    <div class="cv-container" id="cv-content">
+        
+        <!-- Coluna Esquerda -->
+        <div class="sidebar">
+            <div class="profile-header">
+                <h1>Diego<br>Bortoluzo</h1>
+                <h2>Consultor Protheus RH</h2>
+            </div>
+            
+            <div class="personal-info">
+                <h3 class="section-title-sidebar"><i class="fas fa-user"></i> Perfil</h3>
+                <p>37 Anos - Casado</p>
+                <p>Nova Odessa / SP</p>
+            </div>
+
+            <h3 class="section-title-sidebar"><i class="fas fa-address-book"></i> Contato</h3>
+            <ul class="contact-list">
+                <li><i class="fas fa-phone-alt"></i> <a href="https://api.whatsapp.com/send?phone=5519999195243">(19) 9 9919-5243</li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:diego.bortoluzo@gmail.com">diego.bortoluzo@gmail.com</a></li>
+				<li><i class="fas fa-envelope"></i> <a href="mailto:diego.bortoluzo@dbtz.com.br">diego.bortoluzo@dbtz.com.br</a></li>
+                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/diego-bortoluzo" target="_blank">in/diego-bortoluzo</a></li>
+            </ul>
+
+            <h3 class="section-title-sidebar"><i class="fas fa-graduation-cap"></i> Formação</h3>
+            
+            <div class="education-item">
+                <h4>Gestão em Tecnologia da Informação</h4>
+                <p>Cruzeiro do Sul, Americana/SP</p>
+                <p>2021 a 2023</p>
+            </div>
+
+            <div class="education-item">
+                <h4>Análise e Desenvolvimento de Sistemas</h4>
+                <p>Anhanguera, Americana/SP</p>
+                <p>2016 a 2017</p>
+            </div>
+        </div>
+
+        <!-- Coluna Direita -->
+        <div class="main-content">
+            
+            <div class="objective">
+                <h2 class="section-title"><i class="fas fa-bullseye"></i> Objetivo Profissional</h2>
+                <p>Atuar na gestão do sistema, realizando manutenções, atualizações e implementações. Buscando sempre a melhoria contínua do sistema e processos realizados pelos usuários, e desta forma fornecer ferramentas para que outros setores da empresa ganhem agilidade e produtividade na realização das suas atividades.</p>
+            </div>
+
+            <div class="experience">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+
+                <!-- NOVA EXPERIÊNCIA ADICIONADA AQUI -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-title">Sócio Proprietário | Consultoria Protheus</div>
+                        <div class="exp-company">dBtz Tecnologia, Nova Odessa/SP</div>
+                        <div class="exp-date">Agosto/2026 – Atual</div>
+                    </div>
+                    <ul class="exp-details">
+                        <li>Atuação consultiva especializada no ecossistema Protheus e terceirização (BPO) de rotinas de RH e Folha de Pagamento.</li>
+                        <li>Desenvolvimento de sistemas e soluções Web sob demanda (utilizando stack moderno como Node.js, Express, Prisma, Supabase e PostgreSQL), focando na automação e produtividade das operações dos clientes.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-title">Consultor Protheus (Totvs)</div>
+                        <div class="exp-company">Logithink, Campinas/SP</div>
+                        <div class="exp-date">Junho/2017 – Atual</div>
+                    </div>
+                    <ul class="exp-details">
+                        <li>Atendimento exclusivo em processos de RH com foco em Gestão de Pessoal, Ponto Eletrônico e eSocial.</li>
+                        <li>Atendimento, Suporte, Treinamento e Orientações práticas a usuários.</li>
+                        <li>Desenvolvimento e implementação de novas rotinas e funcionalidades conforme as necessidades dos clientes e atendimento a demandas legais.</li>
+                        <li>Desenvolvimento de consultas e administração de banco de dados (SQL).</li>
+                        <li>Migração e Implantação do sistema.</li>
+                        <li>Atualização completa do sistema (atualizações de versões e releases).</li>
+                        <li>Conhecimentos na linguagem de programação ADVPL.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-title">Sócio Proprietário | Consultoria Protheus</div>
+                        <div class="exp-company">dkTech, Santa Barbara d'Oeste/SP</div>
+                        <div class="exp-date">Janeiro/2014 – Dezembro/2017</div>
+                    </div>
+                    <ul class="exp-details">
+                        <li>Gestão completa da empresa, prestando consultoria a diversos clientes nas atividades de manutenção e implementação.</li>
+                        <li>Gestão de equipe de consultores alocados em clientes.</li>
+                        <li>Prospecção comercial de novos clientes e projetos.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-title">Analista de Sistemas</div>
+                        <div class="exp-company">Grupo Petrópolis, Boituva/SP</div>
+                        <div class="exp-date">Junho/2009 – Dezembro/2013</div>
+                    </div>
+                    <ul class="exp-details">
+                        <li>Administração e suporte no ERP Protheus(Totvs) nos módulos de Recursos Humanos.</li>
+                    </ul>
+				</div>
+				
+				<div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-title">Assistente de Departamento Pessoal</div>
+                        <div class="exp-company">Grupo Petrópolis, Boituva/SP</div>
+                        <div class="exp-date">Janeiro/2007 – Junho/2009</div>
+                    </div>
+                    <ul class="exp-details">
+                        <li>Administração, tratamento de exceções e lançamentos de dados no sistema de ponto eletrônico.</li>
+                        <li>Processamento, cálculo e conferência minuciosa da folha de pagamento.</li>
+                        <li>Apuração de encargos sociais e impostos trabalhistas, com geração e validação das guias de recolhimento.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
